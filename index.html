@@ -3,283 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pandacea Protocol | The Verifier</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --deep-sapphire: #0A2342;
-            --veridian-green: #2CA58D;
-            --warm-amber: #F5A623;
-            --cool-gray: #BFCDE0;
-            --off-white: #F8F9FA;
-            --reject-red: #E53E3E;
-        }
-        body {
-            background-color: var(--deep-sapphire);
-            color: var(--off-white);
-            font-family: 'Source Sans Pro', sans-serif;
-        }
-        h1, h2, h3, h4 {
-            font-family: 'Montserrat', sans-serif;
-        }
-        .text-veridian { color: var(--veridian-green); }
-        .bg-veridian { background-color: var(--veridian-green); }
-        .text-amber { color: var(--warm-amber); }
-        .bg-amber { background-color: var(--warm-amber); }
-        .text-cool-gray { color: var(--cool-gray); }
-        .border-cool-gray { border-color: var(--cool-gray); }
-
-        .glassmorphism {
-            background: rgba(191, 205, 224, 0.1);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(191, 205, 224, 0.2);
-        }
-        .content-section {
-            min-height: 80vh;
-            padding-top: 20vh;
-            padding-bottom: 20vh;
-        }
-        .toggle-switch {
-            position: relative;
-            display: inline-block;
-            width: 50px;
-            height: 28px;
-        }
-        .toggle-switch input { opacity: 0; width: 0; height: 0; }
-        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(255,255,255,0.2); transition: .4s; border-radius: 28px; }
-        .slider:before { position: absolute; content: ""; height: 20px; width: 20px; left: 4px; bottom: 4px; background-color: white; transition: .4s; border-radius: 50%; }
-        input:checked + .slider { background-color: var(--veridian-green); }
-        input:checked + .slider:before { transform: translateX(22px); }
-        
-        #payout-button:disabled { background-color: rgba(191, 205, 224, 0.2); color: rgba(191, 205, 224, 0.5); cursor: not-allowed; }
-        #payout-button:not(:disabled) { animation: pulse 2s infinite; }
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(245, 166, 35, 0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(245, 166, 35, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(245, 166, 35, 0); }
-        }
-
-        /* Chatbot styles */
-        .chat-bubble { max-width: 80%; }
-        .chat-bubble-user { background-color: var(--veridian-green); }
-        .chat-bubble-ai { background-color: rgba(191, 205, 224, 0.1); }
-        .typing-indicator span { height: 8px; width: 8px; background-color: var(--cool-gray); display: inline-block; border-radius: 50%; animation: typing 1.4s infinite both; }
-        .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
-        .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
-        @keyframes typing {
-            0%, 80%, 100% { transform: scale(0); }
-            40% { transform: scale(1.0); }
-        }
-    </style>
+    <title>Pandacea - Building the Trust Layer for the Next Trillion-Dollar Economy</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="antialiased">
-
-    <div class="container mx-auto">
-        <div class="lg:flex">
-            <!-- Left Column: Content -->
-            <div class="lg:w-1/2 px-6">
-                <header class="py-8"><div class="text-3xl font-bold font-montserrat text-white">PANDACEA</div></header>
-                <section class="content-section" data-section="intro"><h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4 text-white">Don't Trust. Verify.</h1><p class="text-lg md:text-xl text-cool-gray max-w-2xl mx-auto mb-8">This isn't a website. It's a demonstration. The panel to your right shows both sides of the Pandacea economy. Toggle between the User and Buyer views to see how value is created and exchanged.</p><p class="text-amber font-semibold">↓ Scroll to begin the simulation.</p></section>
-                <section class="content-section" data-section="crisis"><h2 class="text-3xl md:text-4xl font-bold text-white mb-4">An Engine Stalled by Distrust</h2><p class="text-lg text-cool-gray mb-6">The AI revolution runs on data, but its supply chain is broken. It's a chaotic, high-risk environment. Data requests are often opaque, non-consensual, and legally hazardous.</p><p class="text-lg text-cool-gray">The <span class="text-white font-semibold">User View</span> shows this reality: a flood of unvetted requests. The <span class="text-white font-semibold">Buyer View</span> shows the problem from the AI's side: an inability to answer questions that require fresh, real-world data.</p></section>
-                <section class="content-section" data-section="agent"><h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Your MyData Agent</h2><p class="text-lg text-cool-gray mb-6">The solution starts with giving you control. The Pandacea <span class="text-white font-semibold">MyData Agent</span> is your sovereign data guardian. It lives on your device and enforces your rules.</p><p class="text-lg text-cool-gray">In the User View, you now have control. Set your policies and watch as approved requests deposit value into your agent, filling it towards the minimum payout.</p></section>
-                <section class="content-section" data-section="credentials"><h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Trust Through Proof</h2><p class="text-lg text-cool-gray mb-6">Promises aren't enough. Every approved data lease on Pandacea is a W3C standard <span class="text-white font-semibold">Verifiable Credential (VC)</span>, cryptographically signed by you.</p><p class="text-lg text-cool-gray">In the Buyer View, the AI agent now makes a tool call to Pandacea. It purchases access to consented, verifiable data, and the cost is deducted from its wallet. The transaction is transparent and auditable.</p></section>
-                <section class="content-section" data-section="royalties"><h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Perpetual, Automated Royalties</h2><p class="text-lg text-cool-gray mb-6">Your contribution has lasting value. When your data is part of an "enriched" dataset that gets sold, you get paid. Forever. This is managed by our <span class="text-white font-semibold">RoyaltyDistributor</span> smart contract.</p><p class="text-lg text-cool-gray">In the User View, you'll now see <span class="text-amber">amber</span> royalty particles flowing from proof blocks to your earnings—truly passive income, automated by the protocol.</p></section>
-                <section class="content-section" data-section="dao"><h2 class="text-3xl md:text-4xl font-bold text-white mb-4">A Community-Owned Utility</h2><p class="text-lg text-cool-gray mb-6">This entire system is on a path to being owned and governed by its community through the Pandacea DAO. It's a self-sustaining public utility, not a corporate-owned silo.</p><p class="text-lg text-cool-gray">Both simulations now show a stable, healthy ecosystem. A balanced flow of consented data, verifiable proofs, and shared value. This is the future you are helping to build.</p><div class="mt-12"><a href="#" class="bg-amber text-deep-sapphire font-bold py-3 px-6 rounded-lg hover:bg-opacity-90 transition-all">Read the Whitepaper</a><a href="#" class="ml-4 text-white font-bold py-3 px-6 rounded-lg bg-white/10 hover:bg-white/20 transition-all">Join Discord</a></div></section>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">Pandacea</span>
             </div>
+            <div class="nav-links">
+                <a href="#vision" class="nav-link">The Vision</a>
+                <a href="#opportunity" class="nav-link">The Opportunity</a>
+                <a href="research.html" class="nav-link">My Research</a>
+                <a href="journal.html" class="nav-link">Founder's Journal</a>
+                <a href="#connect" class="nav-link cta-button">Let's Connect</a>
+            </div>
+        </div>
+    </nav>
 
-            <!-- Right Column: Visualization -->
-            <div class="lg:w-1/2 lg:sticky lg:top-0 h-screen">
-                <div class="relative w-full h-full p-4 md:p-8 flex flex-col">
-                    <!-- View Toggle -->
-                    <div class="flex-shrink-0 mb-4 self-center bg-deep-sapphire p-1 rounded-full border border-cool-gray/20">
-                        <button id="user-view-btn" class="px-4 py-1 rounded-full text-sm font-bold bg-cool-gray/20 text-white">User View</button>
-                        <button id="buyer-view-btn" class="px-4 py-1 rounded-full text-sm font-bold text-cool-gray">Buyer View</button>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-title">I have a blueprint to fix the broken data economy. But I can't build it alone.</h1>
+            <p class="hero-subtitle">
+                My name is Ace C. I've designed the complete blueprint for Pandacea, a new protocol to re-architect the data economy around user ownership. The vision is validated by the extensive research on this site, the technical whitepaper is complete, and the operational plan is ready. The strategic foundation is laid, but a mission this critical requires a team.
+            </p>
+            <div class="hero-ask">
+                <h2 class="ask-title">I am looking for founding partners to help me bring it to life.</h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- Opportunity Section -->
+    <section id="opportunity" class="opportunity">
+        <div class="container">
+            <h2 class="section-title">This is a ground-floor opportunity to build a foundational piece of the next internet.</h2>
+            
+            <div class="role-cards">
+                <div class="role-card">
+                    <h3 class="role-title">Seeking a Technical Co-Founder / Lead Engineer</h3>
+                    <div class="role-content">
+                        <h4>Who you are:</h4>
+                        <p>You're a senior engineer or architect who is passionate about decentralized systems, privacy-enhancing tech, and open-source development. You aren't just looking for a job; you want to build something meaningful from scratch and have true ownership over the technology.</p>
+                        
+                        <h4>The Role:</h4>
+                        <p>You will be the technical heart of Pandacea. You'll lead the architecture of the protocol, write the first lines of code for the MyData Agent, and build the smart contracts that will power the new economy. You will make the core technical decisions that shape the future of the project.</p>
+                        
+                        <a href="research.html#technical" class="card-cta">See the Technical Vision</a>
                     </div>
+                </div>
 
-                    <!-- User Simulation View -->
-                    <div id="user-simulation" class="relative w-full flex-grow">
-                        <canvas id="verifier-canvas" class="absolute top-0 left-0 w-full h-full"></canvas>
-                        <div id="control-panel" class="absolute bottom-0 left-0 right-0 p-4 z-20"><div class="max-w-md mx-auto glassmorphism rounded-2xl p-6"><div class="flex justify-between items-center mb-4"><h4 id="status-title" class="font-bold text-white text-lg">SYSTEM OFFLINE</h4><span id="status-indicator" class="w-3 h-3 rounded-full bg-cool-gray transition-colors"></span></div><p id="status-text" class="text-sm text-cool-gray mb-6">Scroll down to begin the simulation.</p><div class="flex justify-between items-center mb-6"><div class="text-left space-y-3"><div class="flex items-center"><label class="toggle-switch mr-3"><input type="checkbox" id="consent-toggle" disabled><span class="slider"></span></label><span class="text-sm font-semibold text-white">Enforce Consent</span></div><div class="flex items-center"><label class="toggle-switch mr-3"><input type="checkbox" id="privacy-toggle" disabled><span class="slider"></span></label><span class="text-sm font-semibold text-white">Enforce Privacy</span></div></div><div class="text-right"><p class="text-cool-gray text-xs">SIMULATED EARNINGS</p><p id="earnings" class="text-3xl font-bold text-amber transition-all duration-500">$0.00</p><p class="text-cool-gray text-xs">/ $10.00 Payout</p></div></div><button id="payout-button" disabled class="w-full bg-amber text-deep-sapphire font-bold py-3 rounded-lg transition-all">Request Payout</button></div></div>
-                    </div>
-
-                    <!-- Buyer Simulation View -->
-                    <div id="buyer-simulation" class="hidden relative w-full flex-grow glassmorphism rounded-2xl p-4 sm:p-6 flex flex-col">
-                        <div class="flex justify-between items-center border-b border-cool-gray/20 pb-3 mb-4">
-                            <h4 class="font-bold text-white">AI Agent Simulation</h4>
-                            <div class="text-right">
-                                <p class="text-cool-gray text-xs">AGENT WALLET</p>
-                                <p id="buyer-wallet" class="text-lg font-bold text-amber">$100.00</p>
-                            </div>
-                        </div>
-                        <div id="chat-window" class="flex-grow space-y-4 overflow-y-auto pr-2">
-                            <!-- Chat messages will be injected here -->
-                        </div>
-                        <div class="flex-shrink-0 mt-4">
-                            <button id="run-buyer-sim-btn" class="w-full bg-veridian text-white font-bold py-3 rounded-lg hover:bg-opacity-90 transition-all">Ask AI a Question</button>
-                        </div>
+                <div class="role-card">
+                    <h3 class="role-title">Seeking a Community & Governance Architect</h3>
+                    <div class="role-content">
+                        <h4>Who you are:</h4>
+                        <p>You live and breathe online communities. You understand how to build movements, foster healthy discussion, and design governance systems that empower people. You believe that a protocol's success depends as much on its community as its code.</p>
+                        
+                        <h4>The Role:</h4>
+                        <p>You will be the soul of Pandacea. You'll build our community from the ground up, manage our communications, and lead the design of our DAO and governance structures. You will ensure Pandacea becomes a true, community-owned public utility.</p>
+                        
+                        <a href="research.html#governance" class="card-cta">See the Governance Plan</a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // --- SHARED STATE & DOM ---
-        let currentScene = 'intro';
-        let activeView = 'user'; // 'user' or 'buyer'
-        const userViewBtn = document.getElementById('user-view-btn');
-        const buyerViewBtn = document.getElementById('buyer-view-btn');
-        const userSimulationEl = document.getElementById('user-simulation');
-        const buyerSimulationEl = document.getElementById('buyer-simulation');
-        const contentSections = document.querySelectorAll('.content-section');
-
-        // --- USER VIEW ---
-        const userSim = (() => {
-            const canvas = document.getElementById('verifier-canvas');
-            const ctx = canvas.getContext('2d');
-            const earningsEl = document.getElementById('earnings');
-            const consentToggle = document.getElementById('consent-toggle');
-            const privacyToggle = document.getElementById('privacy-toggle');
-            const statusTitle = document.getElementById('status-title');
-            const statusText = document.getElementById('status-text');
-            const statusIndicator = document.getElementById('status-indicator');
-            const payoutButton = document.getElementById('payout-button');
-            let particles = [], proofs = [], animationFrameId, earnings = 0, isTabVisible = true;
-            const MIN_PAYOUT = 10;
-            const scenes = {
-                intro: { title: 'SYSTEM OFFLINE', text: 'Scroll down to begin the simulation.', indicatorColor: 'bg-cool-gray', particleRate: 0, enableToggles: false },
-                crisis: { title: 'SIMULATING: The Crisis', text: 'A flood of unvetted requests. Your agent auto-rejects unsafe data.', indicatorColor: 'bg-red-500', particleRate: 3, badParticleChance: 0.7, enableToggles: false },
-                agent: { title: 'POLICY CONTROL: Active', text: 'You are in control. Set your policy to filter requests.', indicatorColor: 'bg-amber', particleRate: 2, badParticleChance: 0.4, enableToggles: true },
-                credentials: { title: 'SIMULATING: Verifiable Credentials', text: 'Approved requests are cryptographically signed into on-chain proofs.', indicatorColor: 'bg-veridian', particleRate: 2, badParticleChance: 0.4, enableToggles: true },
-                royalties: { title: 'SIMULATING: Automated Royalties', text: 'Passive income is generated from the downstream value of your data.', indicatorColor: 'bg-veridian', particleRate: 2, badParticleChance: 0.4, enableToggles: true },
-                dao: { title: 'ECOSYSTEM: Stable', text: 'A healthy, balanced flow of consented data and shared value.', indicatorColor: 'bg-veridian', particleRate: 1, badParticleChance: 0.1, enableToggles: true }
-            };
-
-            function resizeCanvas() { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; }
-            class Particle { constructor(x, y, sx, sy, bad, val=0){this.x=x;this.y=y;this.speedX=sx;this.speedY=sy;this.isBad=bad;this.value=val;this.radius=Math.random()*2+2;this.color=bad?'rgba(229,62,62,0.7)':'rgba(191,205,224,0.7)';this.state='request';this.life=250} draw(){ctx.beginPath();ctx.arc(this.x,this.y,this.radius,0,Math.PI*2);ctx.fillStyle=this.color;ctx.fill()} update(){this.x+=this.speedX;this.y+=this.speedY;this.life--;this.draw()} }
-            class Proof { constructor(x,y){this.x=x;this.y=y;this.size=8;this.color='rgba(44,165,141,1)';this.life=300;this.royaltyCooldown=50} draw(){ctx.fillStyle=this.color;ctx.fillRect(this.x-this.size/2,this.y-this.size/2,this.size,this.size)} update(){this.life--;if(currentScene==='royalties'&&this.royaltyCooldown<=0){spawnRoyalty(this.x,this.y);this.royaltyCooldown=Math.random()*100+100}this.royaltyCooldown--;this.draw()} }
-            function spawnRoyalty(x,y){const cx=canvas.width/2,cy=canvas.height/2;const angle=Math.atan2(cy-y,cx-x);const speed=2;const p=new Particle(x,y,Math.cos(angle)*speed,Math.sin(angle)*speed,false,parseFloat((Math.random()*0.2+0.05).toFixed(2)));p.color='rgba(245,166,35,1)';p.state='royalty';p.radius=4;particles.push(p)}
-            function animate(){if(!isTabVisible||activeView!=='user')return;ctx.clearRect(0,0,canvas.width,canvas.height);const cx=canvas.width/2,cy=canvas.height/2;const config=scenes[currentScene];if(Math.random()<config.particleRate/10){spawnParticle(Math.random()< (config.badParticleChance||0))}proofs.forEach((p,i)=>{p.update();if(p.life<=0)proofs.splice(i,1)});particles.forEach((p,i)=>{p.update();const dist=Math.hypot(p.x-cx,p.y-cy);if(p.state==='request'&&dist-p.radius<50)handleCollision(p);if((p.state==='value'||p.state==='royalty')&&dist<10){updateEarnings(p.value);particles.splice(i,1)}if(p.life<=0)particles.splice(i,1)});const progress=Math.min(earnings/MIN_PAYOUT,1);ctx.save();ctx.beginPath();ctx.arc(cx,cy,50,0,Math.PI*2);ctx.strokeStyle=`rgba(44,165,141,${currentScene==='intro'?0.2:0.8})`;ctx.lineWidth=2;ctx.stroke();if(progress>0){ctx.clip();ctx.fillStyle='rgba(44,165,141,0.5)';const fillH=progress*100;ctx.fillRect(cx-50,cy+50-fillH,100,fillH)}ctx.restore();animationFrameId=requestAnimationFrame(animate)}
-            function spawnParticle(isBad){let x,y;if(Math.random()<0.5){x=Math.random()<0.5?0-5:canvas.width+5;y=Math.random()*canvas.height}else{x=Math.random()*canvas.width;y=Math.random()<0.5?0-5:canvas.height+5}const angle=Math.atan2(canvas.height/2-y,canvas.width/2-x);const speed=1;particles.push(new Particle(x,y,Math.cos(angle)*speed,Math.sin(angle)*speed,isBad))}
-            function handleCollision(p){const consentOK=consentToggle.checked,privacyOK=privacyToggle.checked;let isApproved=(currentScene==='crisis')?!p.isBad:(!p.isBad&&consentOK&&privacyOK);if(isApproved){p.state='approved';if(currentScene==='credentials'||currentScene==='royalties'||currentScene==='dao'){proofs.push(new Proof(p.x,p.y))}const cx=canvas.width/2,cy=canvas.height/2;const angle=Math.atan2(cy-p.y,cx-p.x);const speed=1.5;const valP=new Particle(p.x,p.y,Math.cos(angle)*speed,Math.sin(angle)*speed,false,parseFloat((Math.random()*0.5+0.1).toFixed(2)));valP.state='value';valP.color='rgba(44,165,141,1)';particles.push(valP);p.life=0}else{p.state='rejected';p.color='rgba(229,62,62,1)';p.speedX*=-1.2;p.speedY*=-1.2}}
-            function updateEarnings(amount){earnings+=amount;earningsEl.textContent=`$${earnings.toFixed(2)}`;payoutButton.disabled=earnings<MIN_PAYOUT}
+    <!-- Vision Section -->
+    <section id="vision" class="vision">
+        <div class="container">
+            <h2 class="section-title">Building the Trust Layer for the Next Trillion-Dollar Economy</h2>
             
-            return {
-                start: () => { resizeCanvas(); if (!animationFrameId) animate(); },
-                stop: () => { cancelAnimationFrame(animationFrameId); animationFrameId = null; },
-                updateScene: (sceneName) => {
-                    const config = scenes[sceneName];
-                    statusTitle.textContent = config.title; statusText.textContent = config.text;
-                    statusIndicator.className = `w-3 h-3 rounded-full transition-colors ${config.indicatorColor}`;
-                    consentToggle.disabled = !config.enableToggles; privacyToggle.disabled = !config.enableToggles;
-                },
-                init: () => {
-                    window.addEventListener('resize', resizeCanvas);
-                    payoutButton.addEventListener('click',()=>{if(earnings>=MIN_PAYOUT){earnings=0;updateEarnings(0)}});
-                    document.addEventListener('visibilitychange',()=>{isTabVisible=!document.hidden;if(isTabVisible&&activeView==='user')animate()});
-                }
-            };
-        })();
+            <div class="vision-content">
+                <div class="problem-solution">
+                    <div class="problem">
+                        <h3>The Problem</h3>
+                        <p>The current model is a dead end. It exploits users, creates massive liability for developers, and stifles the very innovation it claims to support.</p>
+                    </div>
+                    
+                    <div class="solution">
+                        <h3>The Solution</h3>
+                        <p>The core idea is to turn data into labor. Pandacea is a protocol that allows individuals to license their data with verifiable consent. It creates a 'trust-by-proof' system where privacy is a mathematical guarantee, not a policy promise. It realigns incentives, turning users into partners and data into a form of dignified labor.</p>
+                    </div>
+                </div>
+                
+                <a href="research.html#vision" class="vision-cta">Read the full vision document →</a>
+            </div>
+        </div>
+    </section>
 
-        // --- BUYER VIEW ---
-        const buyerSim = (() => {
-            const chatWindow = document.getElementById('chat-window');
-            const runBtn = document.getElementById('run-buyer-sim-btn');
-            const walletEl = document.getElementById('buyer-wallet');
-            let wallet = 100.00; let simRunning = false;
-            const reset = () => { chatWindow.innerHTML = ''; wallet = 100.00; walletEl.textContent = `$${wallet.toFixed(2)}`; simRunning = false; runBtn.disabled = false; };
-            const addMessage = (text, type, isTyping=false) => {
-                const bubble = document.createElement('div');
-                bubble.className = `chat-bubble p-3 rounded-lg self-start ${type === 'user' ? 'chat-bubble-user self-end' : 'chat-bubble-ai'}`;
-                if (isTyping) {
-                    bubble.innerHTML = `<div class="typing-indicator"><span></span><span></span><span></span></div>`;
-                    bubble.id = 'typing-bubble';
-                } else {
-                    bubble.textContent = text;
-                }
-                chatWindow.appendChild(bubble);
-                chatWindow.scrollTop = chatWindow.scrollHeight;
-                return bubble;
-            };
-            const run = () => {
-                if (simRunning) return;
-                simRunning = true; runBtn.disabled = true; reset();
-                setTimeout(() => addMessage("What's the real-time pedestrian traffic like in downtown Dunnavant, AL right now?", 'user'), 500);
-                setTimeout(() => addMessage('', 'ai', true), 1500);
-                setTimeout(() => {
-                    document.getElementById('typing-bubble')?.remove();
-                    let text = "I don't have access to real-time data. To answer, I need to purchase it from the Pandacea network for $5.50. Proceed?";
-                    if (currentScene !== 'crisis') {
-                        addMessage("This question requires real-time data. I'll use a tool call to Pandacea to get it.", 'ai');
-                        setTimeout(() => {
-                            const toolCall = addMessage("Running tool: pandacea_data_request(query='real-time pedestrian traffic, Dunnavant, AL')", 'ai');
-                            toolCall.classList.add('text-amber', 'font-mono', 'text-xs');
-                            wallet -= 5.50;
-                            walletEl.textContent = `$${wallet.toFixed(2)}`;
-                            setTimeout(() => {
-                                toolCall.remove();
-                                addMessage("Analysis complete. Based on data from 1,253 consenting users, pedestrian traffic in downtown Dunnavant is currently light, with peak activity near the town square.", 'ai');
-                                simRunning = false; runBtn.disabled = false;
-                            }, 2500);
-                        }, 1500);
-                    } else {
-                        addMessage(text, 'ai');
-                        simRunning = false; runBtn.disabled = false;
-                    }
-                }, 3000);
-            };
-            return {
-                start: reset,
-                init: () => runBtn.addEventListener('click', run)
-            };
-        })();
+    <!-- Research Section -->
+    <section class="research">
+        <div class="container">
+            <h2 class="section-title">This Isn't Just a Dream. It's a Plan.</h2>
+            <p class="research-intro">I've dedicated hundreds of hours to researching the technical, economic, and social frameworks required to make Pandacea a reality. The documents below contain the complete blueprint for the protocol.</p>
+            
+            <div class="document-list">
+                <div class="document-item">
+                    <h3>The Problem: An Evidence-Based Analysis</h3>
+                    <p>"Did you know poor data quality costs the U.S. economy an estimated $3.1 trillion annually? Our research identifies the five converging crises—technical, copyright, economic, labor, and social—that make a new model necessary."</p>
+                    <a href="pandacea v2.7/The Problem_ An Evidence-Based Analysis of the Crises in the Modern Data Economy (v2.7).pdf" class="document-link" target="_blank">Read Document</a>
+                </div>
+                
+                <div class="document-item">
+                    <h3>The Vision: A Blueprint for a Human-Centered Data Economy</h3>
+                    <p>"This document outlines our answer: a new, reciprocal social contract built on the principle of Informational Labor, where every individual is compensated fairly for their contribution to the digital world."</p>
+                    <a href="pandacea v2.7/The Vision_ An Evidence-Based Blueprint for a Human-Centered Data Economy (v2.7.02).pdf" class="document-link" target="_blank">Read Document</a>
+                </div>
+                
+                <div class="document-item">
+                    <h3>The Technical Whitepaper (v2.7.02)</h3>
+                    <p>"Read the full architecture, from the user's sovereign MyData Agent to our 'trust-by-proof' privacy model enabled by integrating OpenMined's PySyft library. This is how we provide mathematical guarantees, not just policy promises."</p>
+                    <a href="pandacea v2.7/Pandacea Technical Whitepaper (v2.7.02).pdf" class="document-link" target="_blank">Read Document</a>
+                </div>
+                
+                <div class="document-item">
+                    <h3>The Progressive Decentralization Strategy</h3>
+                    <p>"We've studied the playbooks of successful protocols like MakerDAO, ENS, and Arbitrum. This document details our phased, transparent plan to transition Pandacea from a founder-led project into a fully community-owned public utility."</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        // --- GLOBAL CONTROLS ---
-        function setView(view) {
-            activeView = view;
-            if (view === 'user') {
-                userSimulationEl.classList.remove('hidden');
-                buyerSimulationEl.classList.add('hidden');
-                userViewBtn.classList.add('bg-cool-gray/20', 'text-white');
-                userViewBtn.classList.remove('text-cool-gray');
-                buyerViewBtn.classList.remove('bg-cool-gray/20', 'text-white');
-                buyerViewBtn.classList.add('text-cool-gray');
-                userSim.start();
-            } else {
-                userSimulationEl.classList.add('hidden');
-                buyerSimulationEl.classList.remove('hidden');
-                buyerViewBtn.classList.add('bg-cool-gray/20', 'text-white');
-                buyerViewBtn.classList.remove('text-cool-gray');
-                userViewBtn.classList.remove('bg-cool-gray/20', 'text-white');
-                userViewBtn.classList.add('text-cool-gray');
-                userSim.stop();
-                buyerSim.start();
-            }
-        }
+    <!-- Status Section -->
+    <section class="status">
+        <div class="container">
+            <h2 class="section-title">Where We Are and Where We're Going</h2>
+            <p class="status-intro">This project is currently in the pre-build, recruitment phase. The immediate focus is on assembling the founding team to turn this research into a reality.</p>
+            
+            <div class="status-content">
+                <div class="current-status">
+                    <h3>Current Status:</h3>
+                    <ul>
+                        <li>✅ Core research and strategic plan complete</li>
+                        <li>🎯 Seeking founding partners (Technical & Community)</li>
+                    </ul>
+                </div>
+                
+                <div class="next-steps">
+                    <h3>Next Steps (Upon forming the team):</h3>
+                    <ul>
+                        <li>Incorporate as a Wyoming LLC to provide a legal shield</li>
+                        <li>Begin drafting first grant applications (targeting NLnet, Filecoin Foundation)</li>
+                        <li>Begin development of the MyData Agent MVP and core protocol</li>
+                        <li>Launch the Founder's Journal to document our progress publicly</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    currentScene = entry.target.dataset.section;
-                    userSim.updateScene(currentScene);
-                }
-            });
-        }, { threshold: 0.5 });
+    <!-- Connect Section -->
+    <section id="connect" class="connect">
+        <div class="container">
+            <h2 class="section-title">Let's Build This Together</h2>
+            
+            <div class="founder-message">
+                <p>I'm Ace C., the founding strategist behind Pandacea. I have a background in data analytics and a B.S. from SNHU, but my core expertise comes from extensively applying advanced AI models to deconstruct and redesign complex systems. I used this approach to build the comprehensive blueprint for Pandacea from the ground up. Now, I'm looking for technical and community co-founders to help bring that blueprint to life.</p>
+            </div>
+            
+            <div class="contact-info">
+                <h3>How to Connect:</h3>
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <strong>Email:</strong> <a href="mailto:pandaceaproject@gmail.com">pandaceaproject@gmail.com</a>
+                    </div>
+                    <!-- <div class="contact-method">
+                        <strong>Secure Chat:</strong> <a href="#" target="_blank">@YourHandle</a>
+                    </div>
+                    <div class="contact-method">
+                        <strong>Discord:</strong> <a href="#" target="_blank">YourDiscord#1234</a>
+                    </div> -->
+                    <div class="contact-method">
+                        <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ace-conan-81362195/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ace-conan-81362195/</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        contentSections.forEach(section => observer.observe(section));
-        userViewBtn.addEventListener('click', () => setView('user'));
-        buyerViewBtn.addEventListener('click', () => setView('buyer'));
-        
-        // --- INITIALIZE ---
-        userSim.init();
-        buyerSim.init();
-        setView('user'); // Start on user view
-    });
-    </script>
+    <footer>
+        <p>© 2025 Pandacea. All Rights Reserved. | <a href="legal.html">Legal Notice</a></p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
-</html>
+</html> 
