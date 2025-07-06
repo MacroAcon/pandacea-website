@@ -1,78 +1,150 @@
-# Pandacea Recruitment Website
+# Pandacea Protocol Recruitment Website
 
-A clean, minimalist recruitment website designed to attract a Technical Co-Founder and Community/Governance Architect for the Pandacea Protocol project.
+A professional, responsive recruitment website designed to attract Technical Co-Founders and Community/Governance Architects for the Pandacea Protocol project. The site presents Pandacea as a well-researched, credible, and inspiring mission with a clear team structure and comprehensive technical vision.
 
 ## Overview
 
-This website presents Pandacea as a well-researched, credible, and inspiring mission. The design follows a blueprint aesthetic with clean lines, excellent typography, and a focus on content over flashy visuals. The tone is personal, direct, honest, and mission-driven—like a proposal from a founder rather than a marketing page.
+This website presents Pandacea as a collaborative effort between two founding partners with complementary skills. The design follows a blueprint aesthetic with clean lines, excellent typography, and a focus on content over flashy visuals. The tone is professional, direct, and mission-driven—positioning the project as ready for additional team members to join an established foundation.
+
+## Founding Team
+
+The project is led by **Ace C. and Austin F.**, a two-person founding team with complementary expertise:
+
+- **Ace C.**: Idea architect with background in data analytics and systems architecture
+- **Austin F.**: Operational management and team leadership
 
 ## Website Structure
 
 ### Main Pages
 
-1. **`index.html`** - Primary homepage with the complete narrative
-2. **`research.html`** - Central library of all research documents
+1. **`index.html`** - Primary homepage with complete narrative and team introduction
+2. **`research.html`** - Central library of all research documents ("Our Research")
 3. **`journal.html`** - Founder's journal documenting the project journey
+4. **`legal.html`** - Legal information and disclaimers
+5. **`404.html`** - Custom error page for better user experience
 
 ### Supporting Files
 
-- **`styles.css`** - Complete styling with responsive design
-- **`script.js`** - Interactive functionality (smooth scrolling, animations)
+- **`styles.css`** - Complete styling with responsive design and mobile navigation
+- **`script.js`** - Interactive functionality (smooth scrolling, animations, mobile menu)
+- **`architecture_diagram.html`** - Visual blueprint of the protocol architecture
 - **`README.md`** - This documentation file
+
+## Key Features
+
+### Design Principles
+- **Minimalist**: Clean, uncluttered design focused on content
+- **Blueprint aesthetic**: Inspired by architectural drawings and technical documentation
+- **Responsive**: Works perfectly on all devices with mobile-first design
+- **Accessible**: Proper semantic HTML, focus states, and keyboard navigation
+
+### User Experience
+- **Mobile Navigation**: Full hamburger menu with smooth animations
+- **Smooth scrolling**: Navigation links smoothly scroll to sections
+- **Fade-in animations**: Sections animate in as users scroll
+- **Hover effects**: Subtle interactions on cards and buttons
+- **Visual Timeline**: Professional timeline for project status and next steps
+- **Architecture Integration**: Visual protocol architecture diagram embedded in homepage
+
+### Content Strategy
+- **Evidence-based**: All claims backed by comprehensive research
+- **Transparent**: Full access to all research documents and technical whitepapers
+- **Team-focused**: Clear presentation of founding team and roles
+- **Action-oriented**: Clear calls to action and multiple contact methods
+
+## Recent Updates
+
+### Team Narrative
+- Updated from solo founder to two-person founding team
+- Introduced founders by name (Ace C. and Austin F.) in hero section
+- Changed "My Research" to "Our Research" across all pages
+- Added clear role definitions and complementary expertise
+
+### Visual Improvements
+- Enhanced architecture diagram with subtle zone colors and improved readability
+- Converted status section to professional visual timeline
+- Added Founder's Journal snippet to homepage
+- Improved typography with Roboto Mono for section headings
+- Added icons to role cards for better visual hierarchy
+
+### Technical Enhancements
+- Implemented full mobile navigation with hamburger menu
+- Created custom 404 error page
+- Improved text readability by left-aligning long paragraphs
+- Enhanced responsive design across all screen sizes
+
+## Website Sections
+
+### Homepage (index.html)
+1. **Hero Section**: Team introduction and mission statement
+2. **Opportunity Section**: Role descriptions for Technical Co-Founder and Community Architect
+3. **Playbook Section**: Paradigm shift from attention economy to value creation
+4. **Vision Section**: Problem/solution framework
+5. **Architecture Section**: Visual protocol blueprint
+6. **Research Section**: Overview of foundational documents
+7. **Timeline Section**: Current status and next steps
+8. **Founder's Journal**: Recent insights and progress
+9. **Connect Section**: Team introduction and contact information
+
+### Research Page (research.html)
+- Comprehensive library of all research documents
+- Technical whitepapers and strategic analysis
+- Problem analysis and solution frameworks
+- Monetization strategy and governance plans
+
+### Founder's Journal (journal.html)
+- Living record of project progress
+- Technical insights and strategic decisions
+- Team building and recruitment updates
+- Research findings and implementation plans
 
 ## Customization Guide
 
 ### Personal Information
 
-Before deploying, update the following personal information throughout the website:
+The website is already customized for the current founding team. To update:
 
 #### In `index.html`:
-- Replace `[Your Name]` with your actual name (currently set to "Ace C.")
-- Replace `[Your Background]` with your professional background (currently set to "data-analytics-driven founder & privacy-tech strategist (self-taught, early-career)")
-  - Update contact information in the "Let's Connect" section:
-    - Email address (currently set to pandaceaproject@gmail.com)
-    - LinkedIn profile URL (currently set to https://www.linkedin.com/in/ace-conan-81362195/)
-    - Secure chat handle and Discord username (currently commented out)
+- Update contact information in the "Let's Connect" section
+- Modify role descriptions to match specific recruitment needs
+- Update timeline with current project status
 
 #### In `journal.html`:
-- Update the journal entries to reflect your actual journey and insights
-- Add your own entries to show current momentum and progress
+- Add new journal entries to show current momentum
+- Update entries to reflect actual project progress
+- Maintain authentic voice and transparency
 
 ### Content Customization
 
 #### Hero Section
-The opening message can be personalized while maintaining the direct, honest tone:
+The opening message establishes the team dynamic:
 
 ```html
-<h1 class="hero-title">I have a blueprint to fix the broken data economy. But I can't build it alone.</h1>
+<h1 class="hero-title">We have the blueprint to fix the broken data economy. Now, we're building the team to make it a reality.</h1>
 <p class="hero-subtitle">
-    My name is Ace C., and I've spent months researching a new protocol called Pandacea—a system designed to give people ownership of their data. The vision is clear, the research is done, but the project is still just an idea.
+    We're Ace C. and Austin F., the founding team behind Pandacea. We've designed the complete blueprint for a new protocol to re-architect the data economy around user ownership.
 </p>
 ```
 
 #### Role Descriptions
-The recruitment cards can be customized to better match your specific needs:
+The recruitment cards can be customized for specific needs:
 
-- **Technical Co-Founder**: Adjust the technical requirements and responsibilities
-- **Community & Governance Architect**: Modify the community building and governance focus areas
-
-#### Research Documents
-The research page automatically links to all documents in the `pandacea v2.7/` folder. Ensure all PDF and Markdown files are properly linked.
+- **Technical Co-Founder**: Adjust technical requirements and responsibilities
+- **Community & Governance Architect**: Modify community building and governance focus
 
 ### Design Customization
 
 #### Colors
 The current color scheme uses:
-- Primary: `#1a1a1a` (dark gray/black)
+- Primary: `#1a202c` (dark gray/black)
 - Secondary: `#666` (medium gray)
+- Accent: `#007a7a` (teal)
 - Background: `#ffffff` (white) and `#f8f9fa` (light gray)
-- Accents: Various shades for problem/solution sections
 
 #### Typography
-The website uses Inter font family for a clean, modern look. You can change this by updating the Google Fonts link in the HTML files.
-
-#### Layout
-The design is responsive and works on all device sizes. The grid layouts automatically adjust for mobile devices.
+- **Headings**: Roboto Mono (blueprint aesthetic)
+- **Body**: Poppins (clean, modern)
+- **Icons**: Heroicons SVG set
 
 ## Deployment
 
@@ -90,42 +162,25 @@ The website can be deployed to any static hosting service:
 - **Traditional hosting**: Upload files to any web server
 
 ### Custom Domain
-After deployment, you can configure a custom domain through your hosting provider.
+After deployment, configure a custom domain through your hosting provider.
 
 ## File Organization
 
 ```
 /
-├── index.html              # Main homepage
-├── research.html           # Research documents library
-├── journal.html            # Founder's journal
-├── styles.css              # All styling
-├── script.js               # Interactive functionality
-├── README.md               # This documentation
-└── pandacea v2.7/          # Research documents folder
-    ├── *.pdf               # PDF versions of documents
-    └── *.md                # Markdown versions of documents
+├── index.html                    # Main homepage
+├── research.html                 # Research documents library
+├── journal.html                  # Founder's journal
+├── legal.html                    # Legal information
+├── 404.html                      # Custom error page
+├── architecture_diagram.html     # Protocol architecture visualization
+├── styles.css                    # All styling
+├── script.js                     # Interactive functionality
+├── README.md                     # This documentation
+└── pandacea v2.7/                # Research documents folder
+    ├── *.pdf                     # PDF versions of documents
+    └── *.md                      # Markdown versions of documents
 ```
-
-## Key Features
-
-### Design Principles
-- **Minimalist**: Clean, uncluttered design focused on content
-- **Blueprint aesthetic**: Inspired by architectural drawings and founder whiteboarding
-- **Responsive**: Works perfectly on all devices
-- **Accessible**: Proper semantic HTML and focus states
-
-### User Experience
-- **Smooth scrolling**: Navigation links smoothly scroll to sections
-- **Fade-in animations**: Sections animate in as users scroll
-- **Hover effects**: Subtle interactions on cards and buttons
-- **Clear hierarchy**: Easy to scan and understand the content flow
-
-### Content Strategy
-- **Evidence-based**: All claims backed by research
-- **Transparent**: Full access to all research documents
-- **Personal**: Direct communication from founder to potential partners
-- **Action-oriented**: Clear calls to action and contact methods
 
 ## Maintenance
 
@@ -157,11 +212,19 @@ Remember to update contact information whenever it changes, particularly:
 - **SEO-friendly**: Proper meta tags and semantic structure
 - **Fast loading**: Optimized for performance
 - **Cross-browser compatible**: Works in all modern browsers
+- **Mobile-first**: Responsive design with touch-friendly navigation
+
+## Mobile Features
+
+- **Hamburger Menu**: Full-screen mobile navigation overlay
+- **Touch-friendly**: Large tap targets and smooth interactions
+- **Responsive Typography**: Text scales appropriately for all screen sizes
+- **Optimized Layout**: Grid layouts adapt to mobile screens
 
 ## Support
 
-This website is designed to be self-contained and easy to maintain. The code is well-commented and follows standard web development practices. If you need help with customization or deployment, the structure is simple enough that any web developer can assist.
+This website is designed to be self-contained and easy to maintain. The code is well-commented and follows standard web development practices. The mobile navigation and responsive design ensure it works perfectly across all devices.
 
 ---
 
-**Note**: This website is designed specifically for recruiting founding partners for the Pandacea Protocol. The content and messaging are tailored to attract technical and community-building talent who share the vision of a more equitable data economy. 
+**Note**: This website is designed specifically for recruiting additional founding partners for the Pandacea Protocol. The content and messaging are tailored to attract technical and community-building talent who share the vision of a more equitable data economy, while clearly establishing the existing two-person founding team structure. 
