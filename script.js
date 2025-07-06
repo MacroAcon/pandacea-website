@@ -1,5 +1,35 @@
 // Smooth scrolling for navigation links
 document.addEventListener('DOMContentLoaded', function() {
+    // Mobile Navigation Functionality
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    const mobileNav = document.querySelector('.mobile-nav');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+    
+    // Toggle mobile navigation
+    hamburgerMenu.addEventListener('click', function() {
+        hamburgerMenu.classList.toggle('active');
+        mobileNav.classList.toggle('active');
+        document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+    });
+    
+    // Close mobile nav when clicking on a link
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            hamburgerMenu.classList.remove('active');
+            mobileNav.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+    
+    // Close mobile nav when clicking outside
+    mobileNav.addEventListener('click', function(e) {
+        if (e.target === mobileNav) {
+            hamburgerMenu.classList.remove('active');
+            mobileNav.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+    
     // Handle smooth scrolling for anchor links
     const navLinks = document.querySelectorAll('a[href^="#"]');
     

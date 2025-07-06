@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pandacea Protocol - Architecture Visualization</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0f172a; /* slate-900 */
+            color: #f8fafc; /* slate-50 */
+        }
+        .font-blueprint {
+            font-family: 'Roboto Mono', monospace;
+        }
+        .card {
+            background-color: #1e293b; /* slate-800 */
+            border: 1px solid #334155; /* slate-700 */
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            border-color: #38bdf8; /* sky-400 */
+            box-shadow: 0 0 25px rgba(56, 189, 248, 0.15);
+        }
+        .card-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.125rem;
+            color: #e2e8f0; /* slate-200 */
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .card-desc {
+            font-size: 0.875rem;
+            color: #94a3b8; /* slate-400 */
+            margin-top: 0.5rem;
+        }
+        .sub-card {
+            background-color: #334155; /* slate-700 */
+            border: 1px solid #475569; /* slate-600 */
+            border-radius: 0.5rem;
+            padding: 1rem;
+        }
+        .arrow {
+            position: absolute;
+            background-color: #475569; /* slate-600 */
+            z-index: 0;
+        }
+        .arrow-label {
+            position: absolute;
+            background-color: #0f172a; /* slate-900 */
+            color: #94a3b8; /* slate-400 */
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.875rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.25rem;
+            z-index: 1;
+        }
+        
+        /* Zone background colors for better visual distinction */
+        #user-zone {
+            background-color: rgba(30, 41, 59, 0.3); /* slate-800 with transparency */
+            border-radius: 1rem;
+            padding: 1rem;
+        }
+        
+        #protocol-zone {
+            background-color: rgba(51, 65, 85, 0.3); /* slate-700 with transparency */
+            border-radius: 1rem;
+            padding: 1rem;
+        }
+        
+        #consumer-zone {
+            background-color: rgba(71, 85, 105, 0.3); /* slate-600 with transparency */
+            border-radius: 1rem;
+            padding: 1rem;
+        }
+        .icon {
+            width: 1.5rem;
+            height: 1.5rem;
+            color: #38bdf8; /* sky-400 */
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div class="max-w-7xl mx-auto">
+        <header class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold text-white">Pandacea Protocol Architecture</h1>
+            <p class="text-lg text-slate-400 mt-2">A visual blueprint of the trust layer for the human-centered data economy.</p>
+        </header>
+
+        <div class="relative grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 items-start">
+            <!-- Zone 1: User / Data Producer -->
+            <div id="user-zone" class="space-y-8 flex flex-col items-center">
+                <h2 class="font-blueprint text-xl font-bold text-sky-400 border-b-2 border-sky-400/50 pb-1">🧍 User / Data Producer Zone</h2>
+                <div id="user-card" class="card w-full text-center">
+                     <h3 class="card-title justify-center">
+                        <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        Individual User
+                    </h3>
+                    <p class="card-desc">Generates and owns their data.</p>
+                </div>
+                <div class="w-full text-center">
+                    <div class="font-blueprint text-sky-400 text-2xl transform rotate-90 lg:rotate-0">↓</div>
+                </div>
+                <div id="agent-card" class="card w-full">
+                    <h3 class="card-title">
+                        <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-1.026.977-2.19.977-3.434 0-3.517-1.009-6.799-2.753-9.571M14 6L9.5 11l1.06-5.06L5 6l4.5-1.06L10.56 0 12 4.44 13.44 0 15 4.94 19.06 6l-4.5 1.06L14 6z"></path></svg>
+                        MyData Agent App
+                    </h3>
+                    <p class="card-desc">User's sovereign datasite & digital guardian on their device.</p>
+                    <div class="mt-4 space-y-3">
+                        <div class="sub-card"><strong>Key Management:</strong> Uses device's Secure Enclave for non-custodial key storage.</div>
+                        <div class="sub-card"><strong>Policy Engine (OPA):</strong> Enforces user-defined rules for data access.</div>
+                        <div class="sub-card"><strong>PySyft Node:</strong> Acts as a computation node. Raw data never leaves the device.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Zone 2: Pandacea Protocol -->
+            <div id="protocol-zone" class="space-y-6 flex flex-col">
+                <h2 class="font-blueprint text-xl font-bold text-sky-400 border-b-2 border-sky-400/50 pb-1 text-center">🔗 Pandacea Protocol Zone (The Trust Layer)</h2>
+                
+                <div id="storage-layer" class="card">
+                    <h3 class="card-title">Storage & Identity Layer</h3>
+                    <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <div class="sub-card"><strong>IPFS/Filecoin:</strong> Decentralized storage for encrypted user data.</div>
+                        <div class="sub-card"><strong>Ceramic Network:</strong> Manages mutable user profiles & identity.</div>
+                    </div>
+                </div>
+
+                <div id="privacy-layer" class="card">
+                    <h3 class="card-title">
+                         <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                        Privacy & Computation (PySyft)
+                    </h3>
+                    <p class="card-desc">"Trust-by-Proof" engine for verifiable privacy.</p>
+                     <div class="mt-4 space-y-3">
+                        <div class="sub-card"><strong>Federated Learning (FL):</strong> For cohort-level analysis. Only aggregated model updates are shared.</div>
+                        <div class="sub-card"><strong>Secure Multi-Party Computation (SMPC):</strong> For high-assurance validation in Decentralized Data Clean Rooms.</div>
+                    </div>
+                </div>
+
+                <div id="consent-layer" class="card">
+                     <h3 class="card-title">
+                        <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        Identity & Consent
+                    </h3>
+                    <p class="card-desc">Creates an immutable, auditable trail of consent.</p>
+                    <div class="mt-4 sub-card">
+                        <strong>DIDs & Verifiable Credentials (VCs):</strong> User cryptographically signs a VC to approve each data lease, providing a legal "safe harbor".
+                    </div>
+                </div>
+
+                <div id="settlement-layer" class="card">
+                    <h3 class="card-title">
+                        <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                        Settlement & Economic Layer
+                    </h3>
+                    <div class="mt-4 space-y-3">
+                        <div class="sub-card"><strong>Polygon PoS:</strong> Low-cost, high-throughput settlement for all on-chain transactions.</div>
+                        <div class="sub-card"><strong>Royalty Distributor Contract:</strong> Automates 70/30 revenue splits for enriched data products.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Zone 3: Data Consumer -->
+            <div id="consumer-zone" class="space-y-8 flex flex-col items-center">
+                 <h2 class="font-blueprint text-xl font-bold text-sky-400 border-b-2 border-sky-400/50 pb-1">🏢 Data Consumer / Market Zone</h2>
+                <div id="consumer-card" class="card w-full">
+                    <h3 class="card-title">
+                        <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        Data Buyers & Enrichers
+                    </h3>
+                    <p class="card-desc">AI Developers, Researchers, and Enterprises who need high-quality, consented data.</p>
+                </div>
+                 <div class="w-full text-center">
+                    <div class="font-blueprint text-sky-400 text-2xl transform rotate-90 lg:rotate-0">↓</div>
+                </div>
+                <div id="buyer-agent-card" class="card w-full">
+                    <h3 class="card-title">
+                        <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                        Buyer-Side Agent
+                    </h3>
+                    <p class="card-desc">Automates data sourcing and negotiation using Agent-based Computational Economics (ACE).</p>
+                    <div class="mt-4 space-y-3">
+                        <div class="sub-card"><strong>Query Formulation:</strong> Translates human data needs into machine-readable queries.</div>
+                        <div class="sub-card"><strong>Seller Discovery:</strong> Finds and vets data producers based on reputation.</div>
+                        <div class="sub-card"><strong>Automated Negotiation:</strong> Engages with MyData Agents to agree on terms for a data lease.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Arrows - JS will position these -->
+        </div>
+    </div>
+
+    <script>
+        // This script dynamically draws connecting arrows between the components.
+        function drawArrow(fromId, toId, label, options = {}) {
+            const fromEl = document.getElementById(fromId);
+            const toEl = document.getElementById(toId);
+            const container = fromEl.offsetParent;
+
+            if (!fromEl || !toEl) return;
+
+            const fromRect = fromEl.getBoundingClientRect();
+            const toRect = toEl.getBoundingClientRect();
+            const containerRect = container.getBoundingClientRect();
+
+            const startX = fromRect.right - containerRect.left;
+            const startY = fromRect.top - containerRect.top + fromRect.height / 2;
+            const endX = toRect.left - containerRect.left;
+            const endY = toRect.top - containerRect.top + toRect.height / 2;
+            
+            const isVertical = window.innerWidth < 1024; // lg breakpoint
+            
+            if (isVertical) {
+                 // Vertical layout for mobile
+                const startX_v = fromRect.left - containerRect.left + fromRect.width / 2;
+                const startY_v = fromRect.bottom - containerRect.top;
+                const endX_v = toRect.left - containerRect.left + toRect.width / 2;
+                const endY_v = toRect.top - containerRect.top;
+
+                const midY = startY_v + (endY_v - startY_v) / 2;
+                
+                // Path: Down, Right/Left, Down
+                const line1 = document.createElement('div');
+                line1.className = 'arrow';
+                line1.style.left = `${startX_v - 1}px`;
+                line1.style.top = `${startY_v}px`;
+                line1.style.width = '2px';
+                line1.style.height = `${(endY_v - startY_v) / 2}px`;
+                container.appendChild(line1);
+
+                const line2 = document.createElement('div');
+                line2.className = 'arrow';
+                line2.style.left = `${Math.min(startX_v, endX_v)}px`;
+                line2.style.top = `${midY - 1}px`;
+                line2.style.width = `${Math.abs(startX_v - endX_v)}px`;
+                line2.style.height = '2px';
+                container.appendChild(line2);
+
+                const line3 = document.createElement('div');
+                line3.className = 'arrow';
+                line3.style.left = `${endX_v - 1}px`;
+                line3.style.top = `${midY}px`;
+                line3.style.width = '2px';
+                line3.style.height = `${(endY_v - startY_v) / 2}px`;
+                container.appendChild(line3);
+                
+                const labelEl = document.createElement('div');
+                labelEl.className = 'arrow-label';
+                labelEl.textContent = label;
+                labelEl.style.left = `${(startX_v + endX_v)/2 - labelEl.offsetWidth / 2}px`;
+                labelEl.style.top = `${midY - 10}px`;
+                container.appendChild(labelEl);
+
+            } else {
+                // Horizontal layout for desktop
+                const midX = startX + (endX - startX) / 2;
+
+                // Path: Right, Down/Up, Right
+                const line1 = document.createElement('div');
+                line1.className = 'arrow';
+                line1.style.left = `${startX}px`;
+                line1.style.top = `${startY - 1}px`;
+                line1.style.width = `${(endX - startX) / 2}px`;
+                line1.style.height = '2px';
+                container.appendChild(line1);
+
+                const line2 = document.createElement('div');
+                line2.className = 'arrow';
+                line2.style.left = `${midX - 1}px`;
+                line2.style.top = `${Math.min(startY, endY)}px`;
+                line2.style.width = '2px';
+                line2.style.height = `${Math.abs(startY - endY)}px`;
+                container.appendChild(line2);
+
+                const line3 = document.createElement('div');
+                line3.className = 'arrow';
+                line3.style.left = `${midX}px`;
+                line3.style.top = `${endY - 1}px`;
+                line3.style.width = `${(endX - startX) / 2}px`;
+                line3.style.height = '2px';
+                container.appendChild(line3);
+                
+                const labelEl = document.createElement('div');
+                labelEl.className = 'arrow-label';
+                labelEl.textContent = label;
+                labelEl.style.left = `${midX - labelEl.offsetWidth / 2}px`;
+                labelEl.style.top = `${(startY + endY)/2 - 10}px`;
+                container.appendChild(labelEl);
+            }
+        }
+
+        function drawAllArrows() {
+            // Clear existing arrows
+            document.querySelectorAll('.arrow, .arrow-label').forEach(el => el.remove());
+
+            // Draw arrows based on logic
+            drawArrow('agent-card', 'storage-layer', '1. Store Encrypted Data');
+            drawArrow('agent-card', 'consent-layer', '2. Sign Consent VC');
+            drawArrow('buyer-agent-card', 'privacy-layer', '3. Initiate Query');
+            drawArrow('privacy-layer', 'agent-card', '4. Execute PETs');
+            drawArrow('buyer-agent-card', 'settlement-layer', '5. Send Payment');
+            drawArrow('settlement-layer', 'agent-card', '6. Distribute Royalties');
+        }
+        
+        window.addEventListener('load', drawAllArrows);
+        window.addEventListener('resize', drawAllArrows);
+
+    </script>
+</body>
+</html>
