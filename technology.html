@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technology - Pandacea Protocol</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --primary-color: #007acc;
+            --secondary-bg: #f5f5f5;
+            --border-color: #ddd;
+            --code-bg: #2d2d2d;
+            --code-text: #f8f8f2;
+        }
+        body {
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        .section {
+            margin-bottom: 3.5rem;
+        }
+        h1, h2, h3 {
+            line-height: 1.3;
+            color: #000;
+            font-weight: 700;
+        }
+        h1 {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            margin-top: 2rem;
+        }
+        h2 {
+            font-size: 2.2rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        h3 {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        p, ul, ol {
+            margin-bottom: 1rem;
+        }
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        ul, ol {
+            padding-left: 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--secondary-bg);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        nav a {
+            margin: 5px 15px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.2s ease-in-out;
+        }
+        nav a:hover {
+            background-color: #e9e9e9;
+            text-decoration: none;
+        }
+        nav a.active {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        /* Code Blocks */
+        code {
+            font-family: 'Fira Code', 'Courier New', Courier, monospace;
+        }
+        pre {
+            background-color: var(--code-bg);
+            color: var(--code-text);
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        
+        /* Architecture Diagram */
+        .architecture-img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin: 1rem 0;
+            background-color: #fff;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-bg);
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            margin-top: 4rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.8rem; }
+            .container { padding: 0 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav id="main-nav">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="problem.html" class="nav-link">The Problem</a>
+            <a href="vision.html" class="nav-link">The Vision</a>
+            <a href="technology.html" class="nav-link">Technology</a>
+            <a href="research.html" class="nav-link">Research</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Protocol Architecture & Technology</h1>
+        <p class="intro" style="text-align: center; font-size: 1.1rem; color: #555;">This page provides the engineering blueprint for the Pandacea Protocol, translating architectural concepts into concrete data models, service interactions, and smart contract interfaces.</p>
+
+        <div class="section" id="architecture">
+            <h2>System Architecture</h2>
+            <p>The Pandacea ecosystem is comprised of several interoperable layers designed for security, scalability, and user control. The diagram below illustrates the high-level components and their primary interactions.</p>
+            
+            <object type="image/svg+xml" data="architecture_diagram.svg" class="architecture-img">
+                <!-- Fallback content for browsers that don't support SVG -->
+                <img src="https://placehold.co/900x600/f5f5f5/1a1a1a?text=Architecture+Diagram" alt="Pandacea Protocol Logical Architecture Diagram">
+            </object>
+            <p style="text-align:center; font-style:italic; font-size: 0.9rem;">Logical Architecture Diagram from the System Design Document.</p>
+            
+            <h3>Component Breakdown</h3>
+            <ul>
+                <li><strong>MyData Agent (Earner):</strong> A user-controlled application that manages data sources, enforces user policies, and acts as a P2P node for data leasing and privacy-preserving computation.</li>
+                <li><strong>Buyer-Side Agent (Spender):</strong> A developer-focused application for discovering data products, initiating leases, and receiving results.</li>
+                <li><strong>P2P Network (libp2p):</strong> The communication backbone for agent discovery and negotiation, using a Kademlia DHT for decentralized node lookup.</li>
+                <li><strong>Storage Layer (IPFS/Filecoin):</strong> Decentralized storage for data payloads, ensuring content-addressability and persistence.</li>
+                <li><strong>Privacy Layer (PySyft):</strong> The framework for executing remote data science tasks, focusing on federated analysis and statistics on extracted features.</li>
+                <li><strong>Settlement Layer (Polygon PoS):</strong> The public blockchain for recording all value-based transactions, enforcing agreements via smart contracts, and distributing royalties.</li>
+            </ul>
+        </div>
+
+        <div class="section" id="data-models">
+            <h2>Core Data Models (MVP Focus)</h2>
+            <p>This section defines the initial data structures for the MVP, focusing on the prioritized data types for the autonomous warehouse logistics market.</p>
+            <h3>DataProduct Schema</h3>
+            <p>This is the public-facing listing an Earner publishes to advertise their available data.</p>
+<pre><code>{  
+  "schemaVersion": "1.1",  
+  "productId": "did:pandacea:earner:123/abc-456",  
+  "ownerDid": "did:pandacea:earner:123",  
+  "name": "Novel Package 3D Scans - Warehouse A",  
+  "description": "High-fidelity point cloud data...",  
+  "dataType": "RoboticSensorData",  
+  "keywords": ["robotics", "3d-scan", "lidar"],  
+  "sampleCid": "bafybeig...xyz"
+}</code></pre>
+            
+            <h3>MVP Data Type: RoboticSensorData</h3>
+            <p>The schema for the actual data payload referenced by a DataProduct.</p>
+<pre><code>{
+  "schemaVersion": "1.1",
+  "captureTimestamp": "2025-07-12T19:50:00Z",
+  "sensorType": "LIDAR",
+  "sensorModel": "Velodyne Puck VLP-16",
+  "dataFormat": "PCD_BINARY",
+  "payloadCid": "bafybeig...abc",
+  "metadata": {
+    "warehouseId": "ATL-01",
+    "taskContext": "novel_package_scan",
+    "dimensions_mm": { "x": 350, "y": 210, "z": 155 }
+  }
+}</code></pre>
+        </div>
+        
+        <div class="section" id="economic-mechanisms">
+            <h2>Economic Model & Market Stability</h2>
+            <p>The Pandacea marketplace is governed by a set of transparent, DAO-controlled economic mechanisms designed to foster a healthy market and prevent a "race to the bottom".</p>
+            <ul>
+                <li><strong>Pandacea Data Valuation Formula (PDVF):</strong> A heuristic-based model used at launch to calculate a fair price based on data type, rarity, source quality, and use case.</li>
+                <li><strong>Dynamic Minimum Pricing (DMP):</strong> A protocol-enforced floor price for all data leases, calculated by a smart contract to provide a defensive baseline of compensation for all Earners.</li>
+                <li><strong>Reputation-Based Royalties (RBR):</strong> The protocol's 30% royalty pool is distributed to Earners based on a weighted score of their transaction volume and on-chain reputation, creating a powerful meritocratic incentive for quality.</li>
+            </ul>
+        </div>
+        
+        <div class="section" id="security">
+            <h2>Security & Privacy by Design</h2>
+            <p>Security is not an afterthought; it is a prerequisite. The protocol is designed with a "trust-by-proof" privacy model and robust security considerations.</p>
+            <ul>
+                <li><strong>Verifiable Consent:</strong> Every data lease requires a user to cryptographically sign a Verifiable Credential (VC), creating an immutable, auditable trail of consent that forms the basis of the protocol's legal "safe harbor".</li>
+                <li><strong>Privacy-Enhancing Technologies (PETs):</strong> We integrate OpenMined's PySyft to enable federated learning and secure multi-party computation, ensuring that raw data is protected.</li>
+                <li><strong>Threat Modeling:</strong> Our development is guided by a comprehensive Security Threat Model using the STRIDE methodology to proactively mitigate risks like agent impersonation, data tampering, and economic exploits.</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Pandacea. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

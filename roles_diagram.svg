@@ -1,0 +1,130 @@
+<svg width="900" height="550" viewBox="0 0 900 550" xmlns="http://www.w3.org/2000/svg" font-family="'Inter', system-ui, sans-serif">
+    <defs>
+        <style>
+            .circle {
+                stroke-width: 2.5;
+                fill-opacity: 0.1;
+            }
+            .circle-earner { stroke: #3b82f6; fill: #3b82f6; }
+            .circle-spender { stroke: #10b981; fill: #10b981; }
+            .circle-builder { stroke: #f97316; fill: #f97316; }
+
+            .role-title {
+                font-size: 24px;
+                font-weight: 700;
+                text-anchor: middle;
+            }
+            .title-earner { fill: #1d4ed8; }
+            .title-spender { fill: #047857; }
+            .title-builder { fill: #b45309; }
+
+            .label-line {
+                stroke: #9ca3af;
+                stroke-width: 1.5;
+                stroke-dasharray: 3, 3;
+            }
+            .label-dot {
+                fill: #9ca3af;
+            }
+
+            .label-box {
+                font-size: 13px;
+                color: #374151;
+            }
+            .label-box strong {
+                font-size: 14px;
+                font-weight: 700;
+                color: #111827;
+            }
+            .label-box span {
+                font-size: 12px;
+                color: #4b5563;
+            }
+        </style>
+    </defs>
+
+    <!-- Diagram Title -->
+    <text x="450" y="45" font-size="28" font-weight="bold" text-anchor="middle">Pandacea Economic Roles</text>
+
+    <!-- Venn Circles -->
+    <circle cx="350" cy="270" r="130" class="circle circle-earner" />
+    <circle cx="550" cy="270" r="130" class="circle circle-spender" />
+    <circle cx="450" cy="360" r="130" class="circle circle-builder" />
+
+    <!-- Role Titles -->
+    <text x="350" y="280" class="role-title title-earner">Earner</text>
+    <text x="550" y="280" class="role-title title-spender">Spender</text>
+    <text x="450" y="400" class="role-title title-builder">Builder</text>
+
+    <!-- Labels and Lines -->
+
+    <!-- Prosumer (Center) -->
+    <line x1="450" y1="315" x2="450" y2="180" class="label-line" />
+    <circle cx="450" cy="315" r="4" class="label-dot" />
+    <foreignObject x="350" y="130" width="200" height="50">
+        <div xmlns="http://www.w3.org/1999/xhtml" class="label-box" style="text-align: center;">
+            <strong>The Prosumer</strong><br/>
+            <span>Self-funding R&amp;D Loop</span>
+        </div>
+    </foreignObject>
+
+    <!-- Improves Operations (Earner + Spender) -->
+    <line x1="450" y1="238" x2="450" y2="180" class="label-line" />
+    <circle cx="450" cy="238" r="4" class="label-dot" />
+     <foreignObject x="350" y="80" width="200" height="50">
+        <div xmlns="http://www.w3.org/1999/xhtml" class="label-box" style="text-align: center;">
+            <strong>Improves Operations</strong><br/>
+            <span>Buys weather data, sells soil data</span>
+        </div>
+    </foreignObject>
+
+    <!-- Monetizes Data (Earner Only) -->
+    <line x1="240" y1="270" x2="150" y2="270" class="label-line" />
+    <circle cx="240" cy="270" r="4" class="label-dot" />
+    <foreignObject x="20" y="250" width="130" height="50">
+        <div xmlns="http://www.w3.org/1999/xhtml" class="label-box" style="text-align: right;">
+            <strong>Monetizes Data</strong><br/>
+            <span>(e.g., Gig Worker)</span>
+        </div>
+    </foreignObject>
+
+    <!-- Acquires Data (Spender Only) -->
+    <line x1="660" y1="270" x2="750" y2="270" class="label-line" />
+    <circle cx="660" cy="270" r="4" class="label-dot" />
+    <foreignObject x="750" y="250" width="130" height="50">
+        <div xmlns="http://www.w3.org/1999/xhtml" class="label-box" style="text-align: left;">
+            <strong>Acquires Data</strong><br/>
+            <span>(e.g., Researcher)</span>
+        </div>
+    </foreignObject>
+
+    <!-- Creates Apps (Builder Only) -->
+    <line x1="450" y1="470" x2="450" y2="520" class="label-line" />
+    <circle cx="450" cy="470" r="4" class="label-dot" />
+    <foreignObject x="350" y="520" width="200" height="50">
+        <div xmlns="http://www.w3.org/1999/xhtml" class="label-box" style="text-align: center;">
+            <strong>Creates Apps</strong><br/>
+            <span>(Traditional Dev)</span>
+        </div>
+    </foreignObject>
+
+    <!-- Funds Development (Earner + Builder) -->
+    <line x1="365" y1="375" x2="250" y2="450" class="label-line" />
+    <circle cx="365" cy="375" r="4" class="label-dot" />
+    <foreignObject x="110" y="440" width="140" height="60">
+        <div xmlns="http://www.w3.org/1999/xhtml" class="label-box" style="text-align: right;">
+            <strong>Funds Development</strong><br/>
+            <span>Sells app-generated telemetry data</span>
+        </div>
+    </foreignObject>
+    
+    <!-- Enriches Product (Spender + Builder) -->
+    <line x1="535" y1="375" x2="650" y2="450" class="label-line" />
+    <circle cx="535" cy="375" r="4" class="label-dot" />
+    <foreignObject x="650" y="440" width="140" height="60">
+        <div xmlns="http://www.w3.org/1999/xhtml" class="label-box" style="text-align: left;">
+            <strong>Enriches Product</strong><br/>
+            <span>Buys real-world data for procedural generation</span>
+        </div>
+    </foreignObject>
+</svg>

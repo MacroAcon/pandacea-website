@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Vision - Pandacea Protocol</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --primary-color: #007acc;
+            --secondary-bg: #f5f5f5;
+            --border-color: #ddd;
+        }
+        body {
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        .section {
+            margin-bottom: 3.5rem;
+        }
+        h1, h2, h3 {
+            line-height: 1.3;
+            color: #000;
+            font-weight: 700;
+        }
+        h1 {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            margin-top: 2rem;
+        }
+        h2 {
+            font-size: 2.2rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        p, ul, ol {
+            margin-bottom: 1rem;
+        }
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        ul, ol {
+            padding-left: 20px;
+        }
+        strong {
+            font-weight: 700;
+            color: #000;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--secondary-bg);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        nav a {
+            margin: 5px 15px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.2s ease-in-out;
+        }
+        nav a:hover {
+            background-color: #e9e9e9;
+            text-decoration: none;
+        }
+        nav a.active {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        /* Custom List for Principles */
+        .principle-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .principle-list li {
+            background-color: #f9f9f9;
+            border-left: 5px solid var(--primary-color);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 0 8px 8px 0;
+            display: flex;
+            align-items: flex-start;
+        }
+        .principle-icon {
+            flex-shrink: 0;
+            margin-right: 1.5rem;
+            width: 40px;
+            height: 40px;
+            color: var(--primary-color);
+        }
+        .principle-list strong {
+            display: block;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #000;
+        }
+
+        /* Flywheel Diagram */
+        .flywheel-diagram {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            grid-template-rows: 1fr auto 1fr;
+            gap: 1rem;
+            align-items: center;
+            justify-items: center;
+            margin: 2.5rem 0;
+            font-family: 'Inter', sans-serif;
+        }
+        .flywheel-node {
+            background-color: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            width: 180px;
+        }
+        .flywheel-node strong { font-size: 1.1rem; display: block; margin-bottom: 0.25rem; }
+        .flywheel-node span { font-size: 0.9rem; color: #555; }
+        .flywheel-arrow {
+            color: var(--primary-color);
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        #node1 { grid-column: 2; grid-row: 1; }
+        #node2 { grid-column: 3; grid-row: 2; }
+        #node3 { grid-column: 2; grid-row: 3; }
+        #node4 { grid-column: 1; grid-row: 2; }
+        #arrow1 { grid-column: 3; grid-row: 1; transform: rotate(45deg); }
+        #arrow2 { grid-column: 3; grid-row: 3; transform: rotate(135deg); }
+        #arrow3 { grid-column: 1; grid-row: 3; transform: rotate(225deg); }
+        #arrow4 { grid-column: 1; grid-row: 1; transform: rotate(315deg); }
+
+        /* Next Step Section */
+        .next-step {
+            background-color: #eef7ff;
+            border-left: 5px solid var(--primary-color);
+            padding: 1.5rem 2rem;
+            margin-top: 3rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-bg);
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            margin-top: 4rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.8rem; }
+            .container { padding: 0 1rem; }
+            .flywheel-diagram { display: none; } /* Hide complex diagram on small screens */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav id="main-nav">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="problem.html" class="nav-link">The Problem</a>
+            <a href="vision.html" class="nav-link">The Vision</a>
+            <a href="technology.html" class="nav-link">Technology</a>
+            <a href="research.html" class="nav-link">Research</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Architecting a Human-Centered Data Economy</h1>
+
+        <div class="section" id="introduction">
+            <p>Pandacea is the antidote to the broken system of silent data extraction. It is a foundational protocol designed to re-architect the flow of data and value across the internet. Our vision is to create a <strong>human-centered data economy</strong> where data is treated as property, and the labor involved in creating it is fairly compensated.</p>
+            <p>This is not a theoretical exercise. Our entry point is the global robotics market, which faces a "data bottleneck crisis" that is throttling innovation. By solving this problem, we unlock a massive opportunity and build the trusted data layer for the entire agent-first economy.</p>
+        </div>
+
+        <div class="section" id="principles">
+            <h2>The Core Principles of the Pandacea Protocol</h2>
+            <p>Our vision is guided by three core principles that directly address the failures of the current data economy:</p>
+            <ol class="principle-list">
+                <li>
+                    <svg class="principle-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.286Zm0 13.036h.008v.008H12v-.008Z" /></svg>
+                    <div><strong>Data as Property</strong>Your data is your property. You must have the absolute technical and legal means to own, control, and grant access to it on your own terms.</div>
+                </li>
+                <li>
+                    <svg class="principle-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z" /></svg>
+                    <div><strong>Informational Labor</strong>The act of generating, curating, and sharing data is a form of labor that creates economic value. This "informational labor" must be recognized and compensated.</div>
+                </li>
+                <li>
+                    <svg class="principle-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
+                    <div><strong>Verifiable Consent</strong>Trust requires proof. All data transactions must be rooted in explicit, auditable, and cryptographically verifiable consent, ensuring transparency and accountability.</div>
+                </li>
+            </ol>
+        </div>
+
+        <div class="section" id="economic-model">
+            <h2>Architecting a Radically Fair Economic Model</h2>
+            <p>The Pandacea Protocol introduces a new economic model designed to distribute value equitably among all participants, who can fluidly act in different roles.</p>
+            <ul>
+                <li><strong>For Data Producers ("Earners"):</strong> Any participant can monetize their currently untapped data assets. The data from a single advanced robot, for example, is estimated to be worth <strong>over $1,000 annually</strong>. Pandacea provides the tools to unlock this value securely.</li>
+                <li><strong>For Innovators ("Builders"):</strong> Developers are the engine of the new economy. We propose a <strong>70% revenue share</strong> that flows directly to the builder who creates value on top of the protocol, turning data from a cost center into a profit center.</li>
+                <li><strong>For Data Consumers ("Spenders"):</strong> Enterprises can escape the trilemma of choosing between prohibitively expensive data, legal risks, or stale synthetic data. Pandacea provides a trusted source of diverse, real-world data with built-in compliance, dramatically improving ROI.</li>
+            </ul>
+            <object type="image/svg+xml" data="roles_diagram.svg" style="width: 100%; max-width: 700px; display: block; margin: 2rem auto;">
+                <!-- Fallback for browsers that don't support SVG -->
+                <img src="https://placehold.co/700x400/f5f5f5/1a1a1a?text=Economic+Roles+Diagram" alt="Pandacea Economic Roles Diagram">
+            </object>
+        </div>
+        
+        <div class="section" id="flywheel">
+            <h2>The Spender/Earner Flywheel in Action</h2>
+            <p>The true power of the network emerges when a single entity acts as both a Spender and an Earner, creating a <strong>virtuous cycle</strong>. Pandacea acts as the universal data ledger that removes the friction from these dual flows, making the entire operation smarter and more profitable with every transaction.</p>
+            
+            <div class="flywheel-diagram">
+                <div id="node1" class="flywheel-node"><strong>Spends Data</strong><span>e.g., Buys Weather Data</span></div>
+                <div id="arrow1" class="flywheel-arrow">→</div>
+                <div id="node2" class="flywheel-node"><strong>Improves Product</strong><span>e.g., Better Drone AI</span></div>
+                <div id="arrow2" class="flywheel-arrow">→</div>
+                <div id="node3" class="flywheel-node"><strong>Earns from Data</strong><span>e.g., Sells Soil Data</span></div>
+                <div id="arrow3" class="flywheel-arrow">→</div>
+                <div id="node4" class="flywheel-node"><strong>Enriches Network</strong><span>e.g., More Valuable Data</span></div>
+                <div id="arrow4" class="flywheel-arrow">→</div>
+            </div>
+            <p><em>Example: An Agricultural Robotics company <strong>spends</strong> to acquire satellite weather data to optimize its drones' flight paths. This improves their product. Simultaneously, its drones <strong>earn</strong> revenue by selling high-resolution soil data back to the network, enriching the entire ecosystem.</em></p>
+        </div>
+
+        <div class="section" id="decentralization">
+            <h2>The Vision for a Decentralized Future</h2>
+            <p>Pandacea will not be another centralized monolith. Our vision is one of progressive decentralization. We will begin by building the core protocol, but the ultimate goal is to hand over control to the community through a <strong>Decentralized Autonomous Organization (DAO)</strong>. This ensures that Pandacea will always remain aligned with the interests of its users, not a small group of shareholders.</p>
+        </div>
+
+        <div class="next-step">
+            <p>This vision is made possible by a novel technical architecture. <a href='technology.html'>Explore the technology that powers the protocol.</a></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Pandacea. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

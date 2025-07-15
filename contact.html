@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Pandacea Protocol</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --primary-color: #007acc;
+            --secondary-bg: #f5f5f5;
+            --border-color: #ddd;
+        }
+        body {
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            flex-grow: 1;
+        }
+        h1 {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            margin-top: 2rem;
+            color: #000;
+            font-weight: 700;
+        }
+        p {
+            margin-bottom: 1rem;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #555;
+        }
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--secondary-bg);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        nav a {
+            margin: 5px 15px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.2s ease-in-out;
+        }
+        nav a:hover {
+            background-color: #e9e9e9;
+            text-decoration: none;
+        }
+        nav a.active {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+        
+        /* Contact Box */
+        .contact-box {
+            background-color: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem 3rem;
+            margin: 2rem auto;
+            max-width: 600px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .contact-box .email-link {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-bg);
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            margin-top: 4rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            .container { padding: 0 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav id="main-nav">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="problem.html" class="nav-link">The Problem</a>
+            <a href="vision.html" class="nav-link">The Vision</a>
+            <a href="technology.html" class="nav-link">Technology</a>
+            <a href="research.html" class="nav-link">Research</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Contact Information</h1>
+        <div class="contact-box">
+            <p>For academic inquiries, grant-related questions, or potential research partnerships, please contact us at the email address below.</p>
+            <p>
+                <a href="mailto:pandaceaproject@gmail.com" class="email-link">pandaceaproject@gmail.com</a>
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Pandacea. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Simple script to highlight the active navigation link
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

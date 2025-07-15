@@ -1,0 +1,160 @@
+<svg width="900" height="650" viewBox="0 0 900 650" xmlns="http://www.w3.org/2000/svg" font-family="'Inter', system-ui, sans-serif">
+    <!-- 
+      Diagram Cleanup v4 (Final):
+      - Implemented critique suggestions for maximum clarity.
+      - Highlighted the central LeaseAgreement contract.
+      - Clarified the computation trigger and result labels.
+    -->
+    <defs>
+        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="8" refY="3.5" orient="auto" markerUnits="strokeWidth">
+            <path d="M0,0 L10,3.5 L0,7 z" fill="#333" />
+        </marker>
+        <style>
+            .layer-box {
+                fill: #f9fafb;
+                stroke: #e5e7eb;
+                stroke-width: 1;
+                rx: 12;
+            }
+            .layer-title {
+                font-size: 16px;
+                font-weight: 700;
+                fill: #007acc;
+                text-anchor: middle;
+            }
+            .component-box {
+                fill: #ffffff;
+                stroke: #007acc;
+                stroke-width: 1.5;
+                rx: 8;
+                filter: drop-shadow(0 2px 4px rgba(0,0,0,0.06));
+            }
+            .central-contract {
+                fill: #eef7ff; /* Highlight color */
+                stroke-width: 2; /* Thicker border */
+            }
+            .component-title {
+                font-size: 14px;
+                font-weight: 700;
+                text-anchor: middle;
+            }
+            .component-subtitle {
+                font-size: 12px;
+                fill: #4b5563;
+                text-anchor: middle;
+            }
+            .flow-line {
+                stroke: #374151;
+                stroke-width: 1.5;
+                fill: none;
+                marker-end: url(#arrowhead);
+            }
+             .p2p-line {
+                stroke: #007acc;
+                stroke-width: 1.5;
+                stroke-dasharray: 5, 3;
+                fill: none;
+                marker-end: url(#arrowhead);
+            }
+            .flow-label {
+                font-size: 12px;
+                fill: #1f2937;
+                text-anchor: middle;
+            }
+        </style>
+    </defs>
+
+    <!-- Layer Backgrounds -->
+    <rect x="10" y="10" width="880" height="140" class="layer-box" />
+    <text x="450" y="35" class="layer-title">USER LAYER</text>
+
+    <rect x="10" y="160" width="880" height="200" class="layer-box" />
+    <text x="450" y="185" class="layer-title">PROTOCOL LAYER</text>
+
+    <rect x="10" y="370" width="880" height="270" class="layer-box" />
+    <text x="450" y="395" class="layer-title">SETTLEMENT LAYER (Polygon PoS)</text>
+
+    <!-- User Layer Components -->
+    <g id="user-earner">
+        <rect x="100" y="60" width="180" height="60" class="component-box"/>
+        <text x="190" y="85" class="component-title">MyData Agent</text>
+        <text x="190" y="105" class="component-subtitle">(Earner)</text>
+    </g>
+    <g id="user-spender">
+        <rect x="620" y="60" width="180" height="60" class="component-box"/>
+        <text x="710" y="85" class="component-title">Buyer-Side Agent</text>
+        <text x="710" y="105" class="component-subtitle">(Spender)</text>
+    </g>
+
+    <!-- Protocol Layer Components -->
+    <g id="protocol-p2p">
+        <rect x="360" y="210" width="180" height="60" class="component-box"/>
+        <text x="450" y="235" class="component-title">P2P Network</text>
+        <text x="450" y="255" class="component-subtitle">(libp2p KAD-DHT)</text>
+    </g>
+    <g id="protocol-storage">
+        <rect x="80" y="280" width="180" height="60" class="component-box"/>
+        <text x="170" y="305" class="component-title">Storage Layer</text>
+        <text x="170" y="325" class="component-subtitle">(IPFS/Filecoin)</text>
+    </g>
+    <g id="protocol-privacy">
+        <rect x="640" y="280" width="180" height="60" class="component-box"/>
+        <text x="730" y="305" class="component-title">Privacy Layer</text>
+        <text x="730" y="325" class="component-subtitle">(OpenMined PySyft)</text>
+    </g>
+
+    <!-- Settlement Layer Components -->
+    <g id="settlement-lease">
+        <rect x="360" y="420" width="180" height="60" class="component-box central-contract"/>
+        <text x="450" y="445" class="component-title">LeaseAgreement</text>
+        <text x="450" y="465" class="component-subtitle">Contract</text>
+    </g>
+    <g id="settlement-royalty">
+        <rect x="120" y="520" width="180" height="60" class="component-box"/>
+        <text x="210" y="545" class="component-title">RoyaltyDistributor</text>
+        <text x="210" y="565" class="component-subtitle">Contract</text>
+    </g>
+    <g id="settlement-reputation">
+        <rect x="600" y="520" width="180" height="60" class="component-box"/>
+        <text x="690" y="545" class="component-title">Reputation</text>
+        <text x="690" y="565" class="component-subtitle">Contract</text>
+    </g>
+     <g id="settlement-token">
+        <rect x="360" y="570" width="180" height="60" class="component-box"/>
+        <text x="450" y="595" class="component-title">PGT Token</text>
+        <text x="450" y="615" class="component-subtitle">Contract</text>
+    </g>
+    
+    <!-- Interaction Lines -->
+    <!-- P2P Communication -->
+    <path d="M 280 80 L 620 80" class="p2p-line" />
+    <text x="450" y="70" class="flow-label">Negotiation &amp; Computation Request</text>
+
+    <!-- Earner -> P2P -> Spender -->
+    <path d="M 190 120 L 190 230 L 360 240" class="flow-line" />
+    <text x="265" y="165" class="flow-label">Publishes DataProduct</text>
+    <path d="M 540 240 L 710 240 L 710 120" class="flow-line" />
+    <text x="625" y="185" class="flow-label">Discovers DataProduct</text>
+
+    <!-- Earner -> Storage -->
+    <path d="M 170 120 L 170 280" class="flow-line" />
+    <text x="135" y="200" class="flow-label">Negotiates Storage</text>
+    
+    <!-- Spender -> Privacy -->
+    <path d="M 710 120 L 730 280" class="flow-line" />
+    <text x="765" y="200" class="flow-label">Returns Aggregated Result</text>
+
+    <!-- P2P -> Privacy -->
+    <path d="M 450 270 L 450 305 L 640 305" class="p2p-line" />
+    <text x="545" y="295" class="flow-label">Federated Computation</text>
+
+    <!-- Spender -> Settlement -->
+    <path d="M 730 340 L 730 435 L 540 435" class="flow-line" />
+    <text x="655" y="380" class="flow-label">Initiates Lease</text>
+    
+    <!-- Settlement Layer Interactions -->
+    <path d="M 450 480 L 450 570" class="flow-line" />
+    <path d="M 360 450 L 210 520" class="flow-line" />
+    <path d="M 540 450 L 690 520" class="flow-line" />
+    <text x="450" y="505" class="flow-label">Interacts with</text>
+</svg>
